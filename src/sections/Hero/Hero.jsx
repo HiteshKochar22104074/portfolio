@@ -1,19 +1,26 @@
 import styles from './HeroStyles.module.css'
-import heroImg from '../../assets/hero-img.png'
-import themeIcon from '../../assets/sun.svg'
+import heroImg from '../../assets/hero-img.jpeg'
+import sun from '../../assets/sun.svg';
+import moon from '../../assets/moon.svg';
 import linkedInlight from '../../assets/linkedin-light.svg'
 import Githublight from '../../assets/github-light.svg'
 import linkedIndark from '../../assets/linkedin-dark.svg'
 import Githubdark from '../../assets/github-dark.svg'
 import CV from '../../assets/cv.pdf'
-
+import { useTheme } from '../../common/ThemeContext'
 
 function Hero() {
+  const {theme, toggleTheme} = useTheme();
+
+  const themeIcon = theme === 'light' ? sun : moon;
+  const githubIcon = theme === 'light' ? Githublight : Githubdark;
+  const linkedinIcon = theme === 'light' ? linkedInlight : linkedIndark;
+
   return (
     <section id='hero' className={styles.container}>
       <div className={styles.colorModeContainer}>
-        <img className={styles.hero} src={heroImg} alt="Picture of Hitesh Kochar" />
-        <img className={styles.colorMode} src={themeIcon} alt="Color mode Icon" />
+          <img className={styles.hero} src={heroImg} alt="Picture of Hitesh Kochar" />
+        <img className={styles.colorMode} src={themeIcon} alt="Color mode Icon" onClick={toggleTheme} />
       </div>
 
       <div className={styles.info}>
@@ -22,10 +29,10 @@ function Hero() {
 
         <span>
           <a href="https://www.linkedin.com/in/hitesh-kochar-738251257/" target="_blank" >
-            <img src={linkedInlight} alt="LinkedIn Profile" />
+            <img src={linkedinIcon} alt="LinkedIn Profile" />
           </a>
           <a href="https://github.com/HiteshKochar22104074" target="_blank" >
-            <img src={Githublight} alt="Github Profile" />
+            <img src={githubIcon} alt="Github Profile" />
           </a>
         </span>
 
@@ -34,7 +41,7 @@ function Hero() {
           businesses.
         </p>
 
-        <a href={CV} download>
+        <a href={CV} target='_blank'>
           <button className="hover">Resume</button>
         </a>
       </div>
