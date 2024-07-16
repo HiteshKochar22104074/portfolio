@@ -1,5 +1,5 @@
 :root {
-    --background-color: #fff;
+    --background-color: #d9e7e7;
     --btn-color: #0987f2;
     --btn-text-color: #fff;
     --project-card-bg: #ffffff00;
@@ -22,7 +22,7 @@ body {
     background-color: var(--background-color);
     display: flex;
     justify-content: center;
-    margin: 0 auto 60px;
+    margin-top: 110px;
 }
 
 #root {
@@ -77,6 +77,9 @@ p {
 @media (width >= 800px) {
   #root {
     gap: 100px;
+  }
+  body{
+    margin-top: 50px;
   }
   h1 {
     font-size: 40px;

@@ -2,6 +2,7 @@ import styles from './ProjectsStyles.module.css';
 import ProjectCard from '../../common/ProjectCard';
 import object from '../../assets/object.jpg'
 import store from '../../assets/store.jpg'
+import face from '../../assets/face.jpg'
 
 function Projects () {
   return (
@@ -10,7 +11,12 @@ function Projects () {
       <div className={styles.projectsContainer}>
         <ProjectCard
           src={object}
-          link=""
+          link="https://github.com/HiteshKochar22104074/object-detection"
+          h3="Face Expression Detection"
+        />
+        <ProjectCard
+          src={face}
+          link="https://github.com/HiteshKochar22104074/RealTime-facial-expression-detection"
           h3="Object Detection"
         />
         <ProjectCard
